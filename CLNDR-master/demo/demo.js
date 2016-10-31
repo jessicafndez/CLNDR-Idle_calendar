@@ -8,7 +8,7 @@ $(document).ready( function() {
         $.ajax({
            type: 'POST',
            async: false,
-           url: 'CLNDR-master/demo/events.php',
+           url: 'https://jessicafndez.github.io/CLNDR-Idle_calendar/CLNDR-master/demo/events.php',
            cache: false,
 
 
