@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>CLNDR-Idle Calendar</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="moment/moment.js"></script>
+    <script src="moment/moment-with-locales.js"></script>
+
+    <link rel="stylesheet" href="CLNDR-master/demo/css/clndr.css">
+    <script src="CLNDR-master/src/clndr.js"></script>
+    <script src="CLNDR-master/src/clndr.js"></script>
+
+    <script src="CLNDR-master/demo/events-list.js"></script>
+    <script src="CLNDR-master/demo/demo.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Ubuntu', sans-serif;
+      }
+      .modal {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      .fa {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding-top: 10px;
+        color: white;
+      }
+      .presentation {
+        background-color: #f18f00;
+        font-size: 27px;
+        padding-bottom: 20px;
+        margin: 0;
+      }
+      .presentation label {
+        text-align: center;
+        width: 100%;
+        color: white;
+      }
+      .header-example {
+        background-color: #404040;
+        padding: 20px;
+      }
+      .header-example label {
+        color: white;
+        text-align: center;
+        width: 100%;
+        padding: 20px 0 20px 0;
+        font-size: 18px;
+      }
+      .cal1 {
+        background-color: white;
+        padding: 20px;
+      }
+      .used-example {
+        background-color: #9fb1c0;
+        color: black;
+        padding: 20px 0 20px;
+      }
+      #used1 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .used .row label {
+        padding-top: 20px;
+        font-weight: bold;
+        font-size: 15px;
+        padding-bottom: 0px;
+      }
+      .used p {
+        text-align: left;
+        padding-left: 30px;
+        border: none;
+        margin-top: 10px;
+      }
+      .myinfo {
+        background-color: #8f921a;
+        padding: 30px 10px 50px 10px;
+      }
+      .mymedia {
+        left: -15px;
+      }
+      .mymedia ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+
+        text-align: center;
+      }
+      .mymedia li {
+        display: inline-block;
+      }
+      .mymedia li a {
+          display: block;
+          padding: 8px;
+      }
+      .mymedia a {
+        padding: 5px;
+        text-decoration: none;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <div class="presentation">
+      <div class="container">
+        <i class="fa fa-calendar-plus-o fa-4x"></i><br>
+        <label>CLNDR.js calendar with IdleBeat Ajax events class integration</label>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="header-example">
+      <div class="container">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+              </div>
+              <div class="modal-body">
+                <label class="caption-label"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-example">
+      <div class="container">
+        <label id="used1">Example of IdleBeat Ajax integration on CLNDR calendar</label>
+        <!-- Calendar -->
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="cal1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="used-example">
+      <div class="container">
+        <div class="used">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <label id="used1">How To Use</label>
+            </div>
+          </div>
+        </div>
+        <div class="used">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <label>Download Github Project here:  <a href="http://github.com/kylestetz/CLNDR">http://github.com/kylestetz/CLNDR</a> , then add it to your project.</label><br>
+              <label>This library is just a <a href="http://github.com/kylestetz/CLNDR">http://github.com/kylestetz/CLNDR</a> with my Ajax integration to add events class to display events in a jQuery modal with moment language pack integration include.</label>
+            </div>
+          </div>
+        </div>
+      <div class="used">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <label><b>Example to Event class: CLNDR-master/demo/events.php</b></label>
+              <pre><code>
+  class Event
+  {
+    public $event_title;
+    public $event_date;
+    public $event_city;
+    public $event_link;
+    public $event_type;
+  }
+
+  $event1 = new Event();
+  $event1->event_title = 'Pete Tong presents Ibiza Classics';
+  $event1->event_date = '2016-10-31';
+  $event1->event_hour = '20:30h';
+  $event1->event_city = 'Oslo';
+  $event1->event_link = 'http://www.timeout.com/london/music/pete-tong-presents-ibiza-classics';
+
+  $my_event_array = array($event1 , $event2, ...);
+
+  echo json_encode($my_event_array);
+
+     </code></pre>
+         </div>
+       </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="myinfo">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <label id="used1">Used Free, just link my work on your web page!</label><br>
+            <label>My Work: <a href="http://idlebeat.com">Idle Beat Project</a></label><br>
+            <div class="col-md-12 text-center mymedia">
+              <ul>
+                <li>
+                  <a href="https://github.com/jessicafndez" target="_blank">
+                      <i class="fa fa-github fa-3x"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <script>
+      $(".close").click(function(){
+        $(".caption-label").empty();
+      });
+  </script>
+
+  </body>
+</html>
