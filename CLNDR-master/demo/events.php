@@ -29,23 +29,10 @@
   /* ..............................................................  */
   /* ................  If you want MySQL database .................  */
   /* ..............................................................
-      $conn = new mysqli($server, $user, $password, $dbname);
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
-
-      $conn->set_charset("utf8");
-      $sql_events = "SELECT * FROM events ORDER BY event_date ASC;";
-
-      $result = $conn->query($sql_events);
-
-      $my_event_array  = array();
-
-      if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-          $my_event_array[] = $row;
-        }
-      }
+      
+      $conn = new mysqli(....);
+      .....
+      
   ...................................................................  */
 
   $my_event_array = array($event1 , $event2);
